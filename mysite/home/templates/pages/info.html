@@ -1,0 +1,51 @@
+{% extends "pages\base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+{% load static %}
+
+<div class="row mt-5">
+    <div class="col-md-4">
+      {% if profile.avatar %}
+      <img style="height: 250px;"  src="{{ profile.avatar.url }}" alt="Ảnh đại diện" class="https://www.google.com.vn/url?sa=i&url=https%3A%2F%2Fanhdep123.com%2Ftop-50-anh-thien-nhien-dep-chat-luong-cao-hiem-co-tai-ngay%2F&psig=AOvVaw3X2ADhA_2i34k6_vrsSFPO&ust=1684509748031000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKioiMCV__4CFQAAAAAdAAAAABAI">
+    {% else %}
+      <img src="/path/to/default/avatar" alt="Default Avatar">
+    {% endif %}
+    </div>
+    <div class="col-md-8">
+      <h1 class="mb-6" >My Profile</h1>
+      <div class="handleProfile" >
+        <a style="margin-right: 50px;" href="/add_profile" >Add Profile</a>
+        <a href="/edit-profile">Edit Profile</a>
+      </div>
+      <div class="Contact container">
+        <div class="profile-container">
+            <h1>Thông tin cá nhân</h1>
+            {% if profile %}
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>Thông tin cơ bản</h3>
+                    <p>Họ và tên: {{ profile.full_name }}</p>
+                    <p>Ngày sinh: {{ profile.date_of_birth }}</p>
+                    <p>Địa chỉ: {{ profile.address }}</p>
+                    <p>Số điện thoại: {{ profile.phone_number }}</p>
+                </div>
+                <div class="col-md-5">
+                    <h3>Học vấn</h3>
+                    <p>Bằng cấp: Kỹ sư công nghệ thông tin</p>
+                    <p>{{ profile.university }}</p>
+                </div>
+            </div>
+            {% else %}
+            <p>Không có thông tin cá nhân.</p>
+            {% endif %}
+        </div>
+    </div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100078830645721">Facebook</a></li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100078830645721">Twitter</a></li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100078830645721">Instagram</a></li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100078830645721">Email</a></li>
+        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100078830645721">Zalo</a></li>
+      </ul>
+    </div>
+{% endblock %}

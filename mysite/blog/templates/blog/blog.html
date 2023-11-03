@@ -1,0 +1,22 @@
+{% extends "pages/base.html" %}
+{% block title %}Blog{% endblock  %}
+{% block content %} 
+<div class="container">
+    <h1>Danh sách các Blog của Chương</h1>
+    <div class="row">
+        {% for post in posts %} 
+      <div class="col-md-4">
+        <div class="card article-card">
+          <img src="{{ post.image.url }}" alt="{{ article.title }}" class="card-img-top">
+          <div class="card-body">
+            <h2 class="card-title">{{post.title}}</h2>
+            <p class="card-text">{{ article.description }}</p>
+            <a href="/blog/{{post.id}}" class="btn btn-primary">Xem chi tiết</a>
+            <p class="card-text"><h4> Ngày viết : {{post.date|date:"d-m-y"}}</h4></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock%}

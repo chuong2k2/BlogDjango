@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'static/style.css'%}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <style>
+    html,
+    body {
+      height: 100%;
+      background-color: #f8f9fa;
+    }
+    a {
+      text-decoration: none;
+    }
+    {% comment %} css phần infor {% endcomment %}
+      .profile-container {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 30px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-container h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .profile-container h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .profile-container p {
+        margin-bottom: 10px;
+    }
+
+
+    {% comment %} css blog {% endcomment %}
+    .article-card {
+      margin-bottom: 20px;
+      height: 60vh;
+    }
+    .article-card img {
+      max-width: 100%;
+      height: 50%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .article-card .card-body {
+      padding: 20px;
+    }
+    .article-card .card-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .article-card .card-text {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    .article-card .btn {
+      font-size: 14px;
+    }
+
+  {% comment %} blog detail {% endcomment %}
+
+  .post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post h2 {
+    font-size: 24px;
+}
+
+.post .date {
+    font-style: italic;
+    color: #999;
+}
+
+.post .body {
+    margin-top: 20px;
+    line-height: 1.5;
+}
+  
+  {% comment %} trang liên hệ {% endcomment %}
+  .contact-section {
+    padding: 80px 0;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-info {
+    text-align: start;
+    font-weight: 700;
+}
+
+.contact-info .info-item {
+    margin-bottom: 20px;
+}
+
+.contact-info .info-item i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-control {
+    border-radius: 5px;
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+.contact-form .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.contact-form .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.contact-form .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+{% comment %} home {% endcomment %}
+
+.btn-handle {
+  height: 100px;
+    width: 100px;
+    top: 50%;
+    margin: 0 15px;
+}
+
+.carousel-item {
+  position: relative;
+  text-align: center;
+}
+
+.carousel-item img {
+  width: 100%;
+    height: 600px;
+    object-fit: cover;
+    object-position: top;
+
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.carousel-caption h5 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.carousel-caption a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+  </style>
+
+  <body>
+    <div class="container text-center" style="min-height: 95%">
+      <div class="col-sm-2 w-100">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">My Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav w-100 justify-content-around">
+        <li class="nav-item">
+          <a class="nav-link" href="/blog">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Liên hệ</a>
+        </li>
+        <div class="dropdown nav-item">
+          <button class="dropdown-toggle nav-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if user.is_authenticated %}
+            {{ user.username }}
+            <!-- Hiển thị các thông tin người dùng khác -->
+            {% else %}
+              <h1>Please log in to view your profile.</h1>
+            {% endif %}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item nav-link" href="/info">profile</a>
+            {% if user.is_staff %}
+            <a class="dropdown-item nav-link" href="/admin">admin</a>
+            {% else %}
+            
+            {% endif %}
+            <a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+      </div>
+      <div class="">{% block content %} {% endblock %}</div>
+      </div>
+      
+  </body>
+
+  <script>
+    // Lấy đối tượng nút dropdown
+  var dropdownToggle = document.querySelector(".dropdown-toggle");
+
+  // Lấy đối tượng dropdown menu
+  var dropdownMenu = document.querySelector(".dropdown-menu");
+
+  // Thêm sự kiện click vào nút dropdown toggle
+  dropdownToggle.addEventListener("click", function() {
+    // Kiểm tra trạng thái hiển thị của dropdown menu
+    var isMenuVisible = dropdownMenu.classList.contains("show");
+    
+    // Toggle hiển thị/ẩn dropdown menu
+    if (isMenuVisible) {
+      dropdownMenu.classList.remove("show");
+    } else {
+      dropdownMenu.classList.add("show");
+    }
+  });
+</script>
+</html>

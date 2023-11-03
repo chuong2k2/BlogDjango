@@ -1,0 +1,204 @@
+{% extends "pages/base1.html" %}
+
+{% block title %}
+Khoa học
+{% endblock %}
+
+{% block content %}
+ <style>
+@import url(https://fonts.googleapis.com/css?family=Chewy);
+
+body {
+  font-family: "Roboto Mono", monospace;
+  min-height: 98vh;
+  background-image: url("https://wallpapers.com/images/hd/demon-slayer-logo-tanjiro-vector-art-b6q5zt0h66kbdl5p-b6q5zt0h66kbdl5p.jpg");
+  background-color: #008080;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #8d8d8d50;
+  width: 600px;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.page-title {
+  font-family: "Chewy", sans-serif;
+  font-size: 54px;
+  color: #e0ffff;
+  margin: 5px 0;
+}
+
+.page-logo {
+  width: 200px;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  margin: 1rem 0;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+button:hover {
+  background-color: #0096a5;
+  color: #f2f2f2;
+  transition: 0.5s;
+}
+
+h2 {
+  color: #f5fffa;
+}
+
+#carta-jogador {
+  width: 360px;
+  height: 500px;
+  overflow: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+}
+
+#carta-jogador h3 {
+  text-align: center;
+}
+
+.carta-imagem {
+  border: 1px solid black;
+  height: 100px;
+  margin: 10px;
+}
+
+.carta-imagem img {
+  width: 100%;
+  height: 100%;
+}
+
+.carta-status {
+  height: 160px;
+  margin: 1.5rem;
+}
+
+.carta-status input {
+  margin: 20px 10px;
+}
+
+.opcoes {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.cartao {
+  font-family: "Chewy", sans-serif;
+  height: 300px;
+  width: 220px;
+  background-image: url("https://as1.ftcdn.net/v2/jpg/05/26/89/34/1000_F_526893498_qcD73PLLgdA9HI3Ytu2hJ7Td1IA6xAhi.jpg");
+  background-size: 150%;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0 1rem;
+}
+
+.cartao__imagem {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid #00697875;
+}
+
+.cartao__info {
+  margin-top: 0.75rem;
+  height: 130px;
+  width: 100%;
+  background-color: #0097a775;
+  border: 1px solid #00697875;
+}
+
+.cartao__info--novo div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  height: 30px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0;
+}
+
+.info__titulo {
+  font-size: 24px;
+  margin: 0;
+}
+
+.info__atributos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  height: 30px;
+  margin-left: 0.5rem;
+}
+
+.into__atributos input {
+  margin: 0;
+}
+
+.atributo__valor {
+  margin-right: 1rem;
+}
+
+.resultado {
+  font-size: 18px;
+}
+
+.pontuacao,
+.resultado {
+  color: #f2f2f2;
+  background-image: url("https://as1.ftcdn.net/v2/jpg/05/26/89/34/1000_F_526893498_qcD73PLLgdA9HI3Ytu2hJ7Td1IA6xAhi.jpg");
+  background-size: 100%;
+  border-radius: 10px;
+  font-family: "Chewy", sans-serif;
+  font-size: 24px;
+  display: flex;
+justify-content: space-around;
+}
+
+.resultado p {
+  max-width: 98%;
+}
+
+.pontuacao span {
+  line-height: 60px;
+}
+
+ </style> 
+<div class="container">
+    <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-super-trunfo.png" class="page-logo" alt="">
+    <h1 class="page-title">Đây là trang khoa học</h1>
+    <button onclick="sortearCarta()" id="btnSortear">Sortear carta</button>
+    <div id="divBotaoReiniciar"></div>
+    <div class="pontuacao" id="pontuacao"></div>
+    <form id="form">
+      <h2>Escolha o seu atributo e tente marcar 5 pontos para vencer.</h2>
+      <div class="opcoes" id="opcoes"></div>
+      <button type="button" id="btnJogar" onclick="jogar()" disabled>Jogar</button>
+      <button type="button" id="btnJogarNovamente" onclick="jogarNovamente()" disabled>Próxima Rodada</button>
+      <div id="resultado" class="resultado"></div>
+    </form>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "pages/base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    {% for post in posts %}
+    <div class="carousel-item active">
+      <img src="{{ post.image.url }}" class="d-block w-100" alt="...">
+      <div class="carousel-caption">
+        <h5>{{ post.title }}</h5>
+        <p>{{ post.description }}</p>
+        <a href="{% url 'blog_detail' post.id %}" class="btn btn-primary">Xem chi tiết</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev btn-handle btn btn-primary" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next btn-handle btn btn-primary" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock %}

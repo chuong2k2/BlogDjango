@@ -1,0 +1,46 @@
+{% extends "pages\base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<div class="Contact">
+    <section class="contact-section">
+        <div class="container">
+            <h2>Đóng góp ý kiến cá nhân của bạn</h2>
+            <p>Gửi các đóng góp của bạn về tôi ở đây</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <i class="fa fa-map-marker"></i>
+                            <span>Thông tin của bạn</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa fa-phone"></i>
+                            <span>Email của bạn</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa fa-envelope"></i>
+                            <span>Nội dung của bạn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Họ và tên">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Nội dung tin nhắn"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Gửi</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

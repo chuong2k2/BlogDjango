@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  </head>
+  <style>
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    form {
+      text-align: center;
+    }
+  
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #333;
+    }
+  
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #555;
+    }
+  
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    input[type="submit"]:hover {
+      background-color: #286090;
+    }
+  
+    .signup-link {
+      margin-top: 20px;
+    }
+  
+    .signup-link a {
+      color: #337ab7;
+      text-decoration: none;
+    }
+  </style>
+
+  <body>
+    <center class="container">
+        <form action="." method="POST">
+            {% csrf_token %}
+            <label for="username">Tài khoản:</label>
+            <input type="text" id="username" name="username" required /><br /><br />
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" name="password" required /><br /><br />
+            <input type="submit" value="Đăng nhập" />
+            <p class="signup-link">Don't have an account? <a href="/register">Sign Up</a></p>
+        </form>
+    </center>   
+  </body>
+</html>
